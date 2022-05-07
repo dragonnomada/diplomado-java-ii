@@ -47,24 +47,31 @@ class AdministradorProductosCL {
         switch (opcion) {
             case 1:
                 consultarProducto();
+                mostrarMenu();
                 break;
             case 2:
                 verProductos();
+                mostrarMenu();
                 break;
             case 3:
                 agregarProducto();
+                mostrarMenu();
                 break;
             case 4:
                 modificarProducto();
+                mostrarMenu();
                 break;
             case 5:
                 quitarProducto();
+                mostrarMenu();
                 break;
             case 6:
                 importarProductos();
+                mostrarMenu();
                 break;
             case 7:
                 exportarProductos();
+                mostrarMenu();
                 break;
             case 8:
                 regresar();
@@ -83,6 +90,7 @@ class AdministradorProductosCL {
         Producto producto = buscarProductoConCodigoBarras(codigoBarras);
 
         mostrarProducto(producto);
+
 
     }
 
@@ -380,6 +388,8 @@ class AdministradorProductosCL {
 
     }
 
-    void regresar() {}
+    void regresar() {
+        System.out.println("Regresando al menú principal");
+    }
 
 }
