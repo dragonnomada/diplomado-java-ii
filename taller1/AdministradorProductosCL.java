@@ -1,5 +1,9 @@
 package taller1;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -271,23 +275,110 @@ class AdministradorProductosCL {
         }
     }
 
-    void importarProductos() {}
+    void importarProductos() {
 
-    String solicitarArchivo(Scanner scanner) {}
+        String archivo = solicitarArchivo(scanner);
 
-    void leerProductos(String archivo) {}
+        try { // CONTROLAR EL ERROR
+            leerProductos(archivo);
+            System.out.println("Productos importados");
+        } catch (FileNotFoundException e) {
+            System.out.println("El archivo no existe");
+        }
 
-    Producto leerSiguienteProducto(Scanner scanner) {}
+    }
 
-    boolean haySiguienteProducto(Scanner scanner) {}
+    String solicitarArchivo(Scanner scanner) {
+        System.out.print("Archivo: ");
+        String archivo = scanner.nextLine();
+        return archivo;
+    }
 
-    void exportarProductos() {}
+    void leerProductos(String archivo) throws FileNotFoundException { // ARROJAR EL ERROR
+        Scanner scannerArchivo = new Scanner(new File(archivo));
 
-    String describirProducto() {}
+        while (haySiguienteProducto(scannerArchivo)) {
+            Producto producto = leerSiguienteProducto(scannerArchivo);
+            agregarProducto(producto);
+        }
 
-    String descibirProductos() {}
+        scannerArchivo.close();
+    }
 
-    void escribirProductos(String archivo) {}
+    Producto leerSiguienteProducto(Scanner scanner) {
+        String codigoBarras = scanner.nextLine();
+        String nombre = scanner.nextLine();
+        double precio = scanner.nextDouble(); scanner.nextLine();
+        int existencias = scanner.nextInt(); scanner.nextLine();
+
+        Producto producto = crearProducto(codigoBarras, nombre, precio, existencias);
+
+        return producto;
+    }
+
+    boolean haySiguienteProducto(Scanner scanner) {
+        if (scanner.hasNextLine()) {
+            String line = scanner.nextLine();
+            if (line.equals("@PRODUCTO")) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    void exportarProductos() {
+        String archivo = solicitarArchivo(scanner);
+
+        try {
+            escribirProductos(archivo);
+            System.out.println("Productos exportados");
+        } catch (IOException e) {
+            System.out.println("Error al exportar los productos");
+        }
+    }
+
+    String describirProducto(Producto producto) {
+        StringBuilder stringBuilder = new StringBuilder();
+
+        stringBuilder.append("@PRODUCTO");
+        stringBuilder.append("\n");
+
+        stringBuilder.append(producto.getCodigoBarras());
+        stringBuilder.append("\n");
+
+        stringBuilder.append(producto.getNombre());
+        stringBuilder.append("\n");
+
+        stringBuilder.append(producto.getPrecio());
+        stringBuilder.append("\n");
+
+        stringBuilder.append(producto.getExistencias());
+        stringBuilder.append("\n");
+
+        return stringBuilder.toString();
+    }
+
+    String descibirProductos() {
+        String text = "";
+
+        for (Producto producto : productos) {
+            text += describirProducto(producto);
+        }
+
+        return text;
+    }
+
+    void escribirProductos(String archivo) throws IOException {
+
+        String contenido = descibirProductos();
+
+        FileWriter fileWriter = new FileWriter(archivo);
+
+        fileWriter.write(contenido);
+
+        fileWriter.close();
+
+    }
 
     void regresar() {}
 
