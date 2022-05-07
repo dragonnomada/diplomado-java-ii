@@ -1,0 +1,50 @@
+Venta
+-------------------------------
+id            : int
+fechaInicio   : Date
+fechaTermino  : Date
+importe       : double
+montoPagado   : double
+montoDevuelto : double
+-------------------------------
+Venta(id: int, importe: double)
+-------------------------------
+getId() -> int
+getFechaInicio() -> Date
+getFechaTermino() -> Date
+isFinalizado() -> boolean
+isPagado() -> boolean
+getImporte() -> double
+getMontoPagado() -> double
+getMontoDevuelto() -> double
+-------------------------------
+setMontoPagado(montoPagado : double)
+-------------------------------
+cerrarVenta() -> boolean
+-------------------------------
+@toString() -> String
+
+#################################################
+
+VentaConProductos (Venta)
+--------------------------------
+productos : ArrayList<Producto>
+--------------------------------
+VentaConProductos(id : int)
+--------------------------------
+getProductos() -> Producto[]
+getProductoById(id : int) -> Producto
+getProductoByNombre(nombre : String) -> Producto
+getProductosByPrecio(precioMin : double, precioMax : double) -> Producto[]
+hasProductos() -> boolean
+isEmpty() -> boolean
+--------------------------------
+agregarProducto(producto : Producto)
+agregarProducto(producto : Producto, int veces)
+quitarProducto(producto : Producto) -> boolean
+quitarProducto(id : int) -> boolean
+quitarProducto(id : int, veces : int) -> boolean
+--------------------------------
+@cerrarVenta() -> boolean
+--------------------------------
+@toString -> String

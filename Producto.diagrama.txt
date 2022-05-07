@@ -1,0 +1,26 @@
+Producto
+-------------------------------
+id          : int
+nombre      : String
+precio      : double
+existencias : int
+-------------------------------
+Producto(id : int, nombre : String, precio : double)
+-------------------------------
+getId() -> int
+getNombre() -> String
+getPrecio() -> double
+getExistencias() -> int
+hasExistencias() -> boolean
+isEmpty() -> boolean
+-------------------------------
+setExistencias(existencias : int)
+-------------------------------
+aumentarExistencia()
+quitarExistencia()
+--
+aumentarExistencia(int unidades)
+quitarExistencia(int unidades)
+-------------------------------
+@toString() -> String
+copy() -> Producto
