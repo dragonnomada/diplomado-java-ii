@@ -105,23 +105,65 @@ class AdministradorProductosCL {
         }
     }
 
-    void verProductos() {}
+    void verProductos() {
 
-    ArrayList<Producto> obtenerProductos() {}
+        ArrayList<Producto> productos = obtenerProductos();
 
-    void mostrarProductos(ArrayList<Producto> productos) {}
+        mostrarProductos(productos);
 
-    void agregarProducto() {}
+    }
 
-    String solicitarNombre(Scanner scanner) {}
+    ArrayList<Producto> obtenerProductos() {
+        return productos;
+    }
 
-    double solicitarPrecio(Scanner scanner) {}
+    void mostrarProductos(ArrayList<Producto> productos) {
+        for (Producto producto : productos) {
+            mostrarProducto(producto);
+        }
+    }
 
-    int existencias(Scanner scanner) {}
+    void agregarProducto() {
 
-    Producto crearProducto(String codigoBarras, String nombre, double precio, int existencias) {}
+        String codigoBarras = solicitarCodigoBarras(scanner);
+        String nombre = solicitarNombre(scanner);
+        double precio = solicitarPrecio(scanner);
+        int existencias = solicitarExistencias(scanner);
 
-    void agregarProducto(Producto producto) {}
+        Producto producto = crearProducto(codigoBarras, nombre, precio, existencias);
+
+        agregarProducto(producto);
+
+    }
+
+    String solicitarNombre(Scanner scanner) {
+        System.out.print("Nombre: ");
+        String nombre = scanner.nextLine();
+        return nombre;
+    }
+
+    double solicitarPrecio(Scanner scanner) {
+        System.out.print("Precio: ");
+        double precio = scanner.nextDouble();
+        scanner.nextLine();
+        return precio;
+    }
+
+    int solicitarExistencias(Scanner scanner) {
+        System.out.print("Precio: ");
+        int existencias = scanner.nextInt();
+        scanner.nextLine();
+        return existencias;
+    }
+
+    Producto crearProducto(String codigoBarras, String nombre, double precio, int existencias) {
+        Producto producto = new Producto(codigoBarras, nombre, precio, existencias);
+        return producto;
+    }
+
+    void agregarProducto(Producto producto) {
+        productos.add(producto);
+    }
 
     void modificarProducto() {}
 
