@@ -165,23 +165,111 @@ class AdministradorProductosCL {
         productos.add(producto);
     }
 
-    void modificarProducto() {}
+    void modificarProducto() {
 
-    boolean preguntarModificarNombre(Scanner scanner) {}
+        String codigoBarras = solicitarCodigoBarras(scanner);
 
-    void modificarProductoNombre(Producto producto, String nombre) {}
+        Producto producto = buscarProductoConCodigoBarras(codigoBarras);
 
-    boolean preguntarModificarPrecio(Scanner scanner) {}
+        mostrarProducto(producto);
 
-    void modificarProductoPrecio(Producto producto, double precio) {}
+        if (producto != null) {
+            if (preguntarModificarNombre(scanner)) {
+                String nombre = solicitarNombre(scanner);
+                modificarProductoNombre(producto, nombre);
+            }
 
-    boolean preguntarModificarExistencias(Scanner scanner) {}
+            if (preguntarModificarPrecio(scanner)) {
+                double precio = solicitarPrecio(scanner);
+                modificarProductoPrecio(producto, precio);
+            }
 
-    boolean autorizarSupervisor(Scanner scanner) {}
+            if (preguntarModificarExistencias(scanner)) {
+                if (autorizarSupervisor(scanner)) {
+                    int existencias = solicitarExistencias(scanner);
+                    modificarProductoExistencias(producto, existencias);
+                }
+            }
+        }
 
-    void modificarProductoExistencias(Producto producto, int existencias) {}
+    }
 
-    void quitarProducto() {}
+    boolean preguntarModificarNombre(Scanner scanner) {
+        System.out.println("¿Quieres modificar el nombre?");
+        System.out.println("1. SI");
+        System.out.println("2. NO");
+
+        int opcion = solicitarOpcion(scanner);
+
+        if (opcion == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    void modificarProductoNombre(Producto producto, String nombre) {
+        producto.setNombre(nombre);
+    }
+
+    boolean preguntarModificarPrecio(Scanner scanner) {
+        System.out.println("¿Quieres modificar el precio?");
+        System.out.println("1. SI");
+        System.out.println("2. NO");
+
+        int opcion = solicitarOpcion(scanner);
+
+        if (opcion == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    void modificarProductoPrecio(Producto producto, double precio) {
+        producto.setPrecio(precio);
+    }
+
+    boolean preguntarModificarExistencias(Scanner scanner) {
+        System.out.println("¿Quieres modificar las existencia?");
+        System.out.println("1. SI");
+        System.out.println("2. NO");
+
+        int opcion = solicitarOpcion(scanner);
+
+        if (opcion == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    boolean autorizarSupervisor(Scanner scanner) {
+        System.out.print("Dame la clave del supervisor: ");
+        String claveSupervisor = scanner.nextLine();
+
+        if (claveSupervisor.equals("1234a")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    void modificarProductoExistencias(Producto producto, int existencias) {
+        producto.setExistencias(existencias);
+    }
+
+    void quitarProducto() {
+        String codigoBarras = solicitarCodigoBarras(scanner);
+
+        Producto producto = buscarProductoConCodigoBarras(codigoBarras);
+
+        mostrarProducto(producto);
+
+        if (producto != null) {
+            productos.remove(producto);
+        }
+    }
 
     void importarProductos() {}
 
