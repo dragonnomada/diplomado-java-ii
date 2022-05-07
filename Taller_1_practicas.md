@@ -288,6 +288,26 @@ class AdministradorVentaCL {
 }
 ```
 
+## 4. Generar las entidades intermedias
+
+Hay que considerar `getters`, `setters` y `constructores`
+
+```text
+Producto
+------------
+codigoBarras : String
+nombre : String
+precio : double
+existencias : int
+
+ProductoVenta
+-----------------
+producto : Producto
+cantidad : int
+precioUnitario : double
+precioTotal : double
+```
+
 
 
 
