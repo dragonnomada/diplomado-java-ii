@@ -39,8 +39,8 @@ getProductosByPrecio(precioMin : double, precioMax : double) -> Producto[]
 hasProductos() -> boolean
 isEmpty() -> boolean
 --------------------------------
-agregarProducto(producto : Producto)
-agregarProducto(producto : Producto, int veces)
+agregarProducto(producto : Producto) -> boolean
+agregarProducto(producto : Producto, int veces) -> boolean
 quitarProducto(producto : Producto) -> boolean
 quitarProducto(id : int) -> boolean
 quitarProducto(id : int, veces : int) -> boolean
