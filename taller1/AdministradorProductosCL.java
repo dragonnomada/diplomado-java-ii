@@ -5,11 +5,71 @@ import java.util.Scanner;
 
 class AdministradorProductosCL {
 
-    void mostrarMenu() {}
+    Scanner scanner; // REFERENCIA
 
-    int solicitarOpcion(Scanner scanner) {}
+    // REQUIERO: Un scanner
+    public void setScanner(Scanner scanner) {
+        this.scanner = scanner;
+    }
 
-    void seleccionarOpcion(int opcion) {}
+    void mostrarMenu() {
+
+        System.out.println("AdministradorProductosCL");
+        System.out.println("------------------------");
+        System.out.println("1. Consultar Producto");
+        System.out.println("2. Ver Productos");
+        System.out.println("3. Agregar Producto");
+        System.out.println("4. Modificar Producto");
+        System.out.println("5. Quitar Producto");
+        System.out.println("6. Importar Productos");
+        System.out.println("7. Exportar Productos");
+        System.out.println("8. Regresar");
+
+        int opcion = solicitarOpcion(scanner);
+
+        seleccionarOpcion(opcion);
+
+    }
+
+    int solicitarOpcion(Scanner scanner) {
+        System.out.print("Opción: ");
+        int opcion = scanner.nextInt();
+        scanner.nextLine();
+        return opcion;
+    }
+
+    void seleccionarOpcion(int opcion) {
+        switch (opcion) {
+            case 1:
+                consultarProducto();
+                break;
+            case 2:
+                verProductos();
+                break;
+            case 3:
+                agregarProducto();
+                break;
+            case 4:
+                modificarProducto();
+                break;
+            case 5:
+                quitarProducto();
+                break;
+            case 6:
+                importarProductos();
+                break;
+            case 7:
+                exportarProductos();
+                break;
+            case 8:
+                regresar();
+                break;
+            default:
+                System.out.println("La opción no es válida");
+                mostrarMenu();
+                break;
+        }
+    }
 
     void consultarProducto() {}
 

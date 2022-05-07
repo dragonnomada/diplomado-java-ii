@@ -46,6 +46,7 @@ class TiendaCL {
     }
 
     void abrirAdministradorProductos() {
+        administradorProductosCL.setScanner(scanner);
         administradorProductosCL.mostrarMenu();
         mostrarMenu();
     }
