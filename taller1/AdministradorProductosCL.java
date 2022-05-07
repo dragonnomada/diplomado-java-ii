@@ -91,7 +91,6 @@ class AdministradorProductosCL {
 
         mostrarProducto(producto);
 
-
     }
 
     String solicitarCodigoBarras(Scanner scanner) {
