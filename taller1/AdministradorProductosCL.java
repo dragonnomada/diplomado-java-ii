@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 class AdministradorProductosCL {
 
+    ArrayList<Producto> productos = new ArrayList<>();
     Scanner scanner; // REFERENCIA
 
     // REQUIERO: Un scanner
@@ -71,13 +72,38 @@ class AdministradorProductosCL {
         }
     }
 
-    void consultarProducto() {}
+    void consultarProducto() {
 
-    String solicitarCodigoBarras(Scanner scanner) {}
+        String codigoBarras = solicitarCodigoBarras(scanner);
 
-    Producto buscarProductoConCodigoBarras(String codigoBarras) {}
+        Producto producto = buscarProductoConCodigoBarras(codigoBarras);
 
-    void mostrarProducto(Producto producto) {}
+        mostrarProducto(producto);
+
+    }
+
+    String solicitarCodigoBarras(Scanner scanner) {
+        System.out.print("Código de Barras: ");
+        String codigoBarras = scanner.nextLine();
+        return codigoBarras;
+    }
+
+    Producto buscarProductoConCodigoBarras(String codigoBarras) {
+        for (Producto producto : productos) {
+            if (producto.getCodigoBarras().equals(codigoBarras)) {
+                return producto;
+            }
+        }
+        return null;
+    }
+
+    void mostrarProducto(Producto producto) {
+        if (producto == null) {
+            System.out.println("El producto no existe :(");
+        } else { // si producto != null
+            System.out.println(producto);
+        }
+    }
 
     void verProductos() {}
 

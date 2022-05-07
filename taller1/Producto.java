@@ -2,10 +2,10 @@ package taller1;
 
 public class Producto {
 
-    String codigoBarras;
-    String nombre;
-    double precio;
-    int existencias;
+    private String codigoBarras;
+    private String nombre;
+    private double precio;
+    private int existencias;
 
     public Producto(String codigoBarras, String nombre, double precio, int existencias) {
         this.codigoBarras = codigoBarras;
