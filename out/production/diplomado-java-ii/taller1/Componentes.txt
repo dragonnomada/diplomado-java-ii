@@ -1,0 +1,26 @@
+TiendaCL
+-----------------------------------
+1. Administrador de Productos
+2. Administrador de Venta
+3. Salir
+
+AdministradorProductosCL
+-----------------------------------
+1. Consultar Producto
+2. Ver Productos
+3. Agregar Producto
+4. Modificar Producto
+5. Quitar Producto
+6. Importar Productos
+7. Exportar Productos
+8. Regresar
+
+AdministradorVentaCL
+-----------------------------------
+1. Consultar Venta
+2. Consultar Producto
+3. Agregar Producto a Venta
+4. Quitar Producto de Venta
+5. Completar Venta
+6. Cancelar Venta
+7. Regresar

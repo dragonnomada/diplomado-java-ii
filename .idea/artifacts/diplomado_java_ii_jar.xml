@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="diplomado-java-ii:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/diplomado_java_ii_jar</output-path>
+    <root id="archive" name="diplomado-java-ii.jar">
+      <element id="module-output" name="diplomado-java-ii" />
+    </root>
+  </artifact>
+</component>
