@@ -153,7 +153,7 @@ class TestSwingActionListenerFormal {
 }
 ```
 
-![f202](./figuras/f202.png)
+![f203](./figuras/f203.png)
 
 > Ejemplo: Un `ActionListener` informal
 
@@ -170,7 +170,7 @@ class TestSwingActionListenerInformal {
         JPanel panel = new JPanel();
         
         JButton button = new JButton("Pulsame");
-        
+
         button.addActionListener(new ActionListener() {
 
             private int contador = 0;
@@ -179,9 +179,9 @@ class TestSwingActionListenerInformal {
             public void actionPerformed(ActionEvent e) {
                 System.out.printf("Contador: %d\n", contador++);
             }
-            
-        }); // Determinar llamar al controlador cada que el botón se pulse
 
+        }); // Determinar llamar al controlador cada que el botón se pulse
+        
         panel.add(button);
         frame.add(panel);
         
@@ -194,3 +194,5 @@ class TestSwingActionListenerInformal {
     
 }
 ```
+
+![f204](./figuras/f204.png)
