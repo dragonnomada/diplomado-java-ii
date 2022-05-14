@@ -43,3 +43,10 @@
     writer.write(contenido);
 
     writer.close()
+
+    // TODO: 1. Mostrar un dialogó que se guardó
+                - JOptionPane.showMessageDialog(...)
+    // TODO: 2. Resetar el texto del JTextArea
+                - textArea1.setText("")
+    // TODO: 3. Cerrar el frame
+                - frame.dispose()
