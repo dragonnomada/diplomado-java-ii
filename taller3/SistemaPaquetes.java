@@ -59,7 +59,96 @@ public class SistemaPaquetes {
     }
 
     private void seleccionarOpcion() {
+        System.out.print("Opción: ");
 
+        int opcion = scanner.nextInt();
+        scanner.nextLine();
+
+        seleccionarOpcion(opcion);
     }
+
+    public void seleccionarOpcion(int opcion) {
+        switch (opcion) {
+            case 1:
+                registrarPaquete();
+                break;
+            case 2:
+                asignarGuia();
+                break;
+            case 3:
+                verPaquetes();
+                break;
+            case 4:
+                buscarPaquete();
+                break;
+            case 5:
+                activarDesactivarPaquete();
+                break;
+            case 6:
+                verHistorialPaquete();
+                break;
+            case 7:
+                salir();
+                break;
+            default:
+                seleccionNoValida();
+                break;
+        }
+    }
+
+    private void hacerPausa() {
+        System.out.print("[Pula ENTER para continuar...]");
+        scanner.nextLine();
+    }
+
+    private void regresarAlMenu() {
+        hacerPausa();
+        abrirMenu();
+    }
+
+    public void registrarPaquete() {
+        String sku = solicitarSku(); // String solicitarSku()
+        insertarPaquete(sku); // void insertarPaquete(String sku)
+        regresarAlMenu();
+    }
+
+    public void asignarGuia() {
+        String sku = solicitarSku();
+        String guia = solicitarGuia(); // String solicitarGuia()
+        Paquete paquete = buscarPaquetePorSku(sku); // Paquete buscarPaquetePorSku(String sku)
+        // Paquete { int paqueteId, String sku, String guia, boolean activo, Date createAt, Date updateAt }
+        regresarAlMenu();
+    }
+
+    public void verPaquetes() {
+        // TODO: Implementar
+        regresarAlMenu();
+    }
+
+    public void buscarPaquete() {
+        // TODO: Implementar
+        regresarAlMenu();
+    }
+
+    public void activarDesactivarPaquete() {
+        // TODO: Implementar
+        regresarAlMenu();
+    }
+
+    public void verHistorialPaquete() {
+        // TODO: Implementar
+        regresarAlMenu();
+    }
+
+    public void salir() {
+        System.out.println("Gracias, fin del programa");
+    }
+
+    public void seleccionNoValida() {
+        System.out.println("La opción no es válida");
+        regresarAlMenu();
+    }
+
+
 
 }
