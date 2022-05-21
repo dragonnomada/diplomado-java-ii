@@ -1,0 +1,27 @@
+[INICIALIZAR MYSQL]
+
+> mysqld --initialize --user=mysql --console
+
+* No debe existir la carpeta data y deben haber permisos de escritura
+
+[REESTABLECER LA CONTRASEÑA]
+
+> mysqld --init-file=C:\\mysql-8.0.29-winx64\\mysql-init.txt --console
+
+* Debes crear el archivo `mysql-init.txt` con:
+
+	ALTER USER 'root'@'localhost' IDENTIFIED BY 'password';
+
+[ENCENDER EL SERVIDOR DE MYSQL]
+
+> mysqld --console
+
+* No cerrar la terminal (el servidor funcionará mientras la ventana este abierta)
+
+[CONECTARSE AL SERVIDOR]
+
+> mysql -u root -p
+
+* En otra terminal puedes conectarte.
+
+* **Nota:** Usa `--port=<12345>` si el puerto `3306` ya está ocupado en todos los comandos.
