@@ -8,37 +8,49 @@ public class SistemaPaquetes {
     private Connection conn;
     private Scanner scanner;
 
-    public SistemaPaquetes(Connection conn, Scanner scanner) throws SQLException {
+    public SistemaPaquetes(Connection conn, Scanner scanner) {
         this.conn = conn;
         this.scanner = scanner;
 
         this.instalarTablas();
     }
 
-    private void instalarTablas() throws SQLException {
+    private void instalarTablas() {
         instalarTablaPaquete();
         // TODO: Instalar demás tablas
     }
 
-    private void instalarTablaPaquete() throws SQLException {
-        PreparedStatement preparedStatement = conn.prepareStatement(
-                "CREATE TABLE IF NOT EXISTS Paquete (\n" +
-                        "  PaqueteID int NOT NULL AUTO_INCREMENT,\n" +
-                        "  Sku varchar(255) NOT NULL UNIQUE,\n" +
-                        "  Guia varchar(255),\n" +
-                        "  Activo bool,\n" +
-                        "  CreateAt timestamp NOT NULL DEFAULT now(),\n" +
-                        "  UpdateAt timestamp,\n" +
-                        "  PRIMARY KEY (PaqueteID)\n" +
-                        ")"
-        );
+    private void instalarTablaPaquete() {
+        PreparedStatement statement;
+        try {
+            statement = conn.prepareStatement(
+                    "CREATE TABLE IF NOT EXISTS Paquete (\n" +
+                            "  PaqueteID int NOT NULL AUTO_INCREMENT,\n" +
+                            "  Sku varchar(255) NOT NULL UNIQUE,\n" +
+                            "  Guia varchar(255),\n" +
+                            "  Activo bool,\n" +
+                            "  CreateAt timestamp NOT NULL DEFAULT now(),\n" +
+                            "  UpdateAt timestamp,\n" +
+                            "  PRIMARY KEY (PaqueteID)\n" +
+                            ")"
+            );
+        } catch (SQLException e) {
+            System.out.println("Hay un error en la sintaxis para crear la tabla Paquete");
+            return;
+        }
 
-        int resultado = preparedStatement.executeUpdate();
+        boolean resultado;
+        try {
+            resultado = statement.execute();
+        } catch (SQLException e) {
+            System.out.println("Falló la creación de la tabla Paquete: " + e.getMessage());
+            return;
+        }
 
-        if (resultado == 0) {
+        if (resultado) {
             System.out.println("Se instaló la tabla Paquete");
         } else {
-            throw new SQLException("No se pudo crear la tabla Paquete");
+            System.out.println("No se pudo crear la tabla Paquete");
         }
     }
 
@@ -106,6 +118,36 @@ public class SistemaPaquetes {
         abrirMenu();
     }
 
+    public String solicitarSku() {
+        System.out.print("SKU: ");
+        String sku = scanner.nextLine();
+        return sku;
+    }
+
+    public void insertarPaquete(String sku) {
+        PreparedStatement statement;
+        try {
+            statement = conn.prepareStatement("INSERT INTO Paquete (sku) VALUES (?)");
+        } catch (SQLException e) {
+            System.out.println("Hay un error en la sintaxis al insertar el paquete");
+            return;
+        }
+        try {
+            statement.setString(1, sku); // Reemplazo de parámetros
+        } catch (SQLException e) {
+            System.out.println("No se puede insertar el parámetro sku");
+            return;
+        }
+        try {
+            statement.execute(); // excute -> INSERT/CREATE | executeUpdate -> UPDATE/DELETE | executeQuery -> SELECT
+        } catch (SQLException e) {
+            System.out.println("El paquete ya existe");
+            //System.out.println("Error al ejecutar la consulta: " + e.getMessage());
+            return;
+        }
+        System.out.printf("El paquete con SKU: %s fue insertado.\n", sku);
+    }
+
     public void registrarPaquete() {
         String sku = solicitarSku(); // String solicitarSku()
         insertarPaquete(sku); // void insertarPaquete(String sku)
@@ -113,9 +155,9 @@ public class SistemaPaquetes {
     }
 
     public void asignarGuia() {
-        String sku = solicitarSku();
-        String guia = solicitarGuia(); // String solicitarGuia()
-        Paquete paquete = buscarPaquetePorSku(sku); // Paquete buscarPaquetePorSku(String sku)
+        //String sku = solicitarSku();
+        //String guia = solicitarGuia(); // String solicitarGuia()
+        //Paquete paquete = buscarPaquetePorSku(sku); // Paquete buscarPaquetePorSku(String sku)
         // Paquete { int paqueteId, String sku, String guia, boolean activo, Date createAt, Date updateAt }
         regresarAlMenu();
     }
