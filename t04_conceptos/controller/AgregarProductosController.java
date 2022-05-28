@@ -37,8 +37,8 @@ public class AgregarProductosController {
         }
         // TODO: Mandarle los datos del producto al modelo
         if (model.agregarProducto(nombre, descripcion, precio, existencias)) {
-            view.reinciarVista();
             view.mostrarAgregarProductoCorrecto();
+            view.reinciarVista();
         } else {
             view.mostrarAgregarProductoError("No se pudo agregar el producto");
         }
