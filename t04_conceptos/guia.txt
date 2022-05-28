@@ -1,0 +1,28 @@
+VISTA:
+
+ProductosUI             -> Swing Form
+
+IAgregarProductoView
+  + getNombre() -> String
+  + getDescripcion() -> String
+  + getPrecio() -> double
+  + getExistencias() -> int
+  + mostrarAgregarProductoCorrecto()
+  + mostrarAgregarProductoError()
+
+MODELO:
+
+ProductosDB
+
+IAgregarProductoModel
+  + agregarProducto(String nombre,
+		String descripcion,
+		double precio,
+		int existencias) -> boolean
+
+CONTROLADOR:
+
+AgregarProductosController
+  - IAgregarProductoModel
+  - IAgregarProductoView
+  + transactionAgregarProducto()
