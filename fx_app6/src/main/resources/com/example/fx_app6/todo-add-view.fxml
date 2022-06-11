@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<HBox alignment="CENTER" prefHeight="116.0" prefWidth="260.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fx_app6.TodoAddController">
+   <children>
+      <TextField promptText="Escribe algo por hacer..." />
+      <Button mnemonicParsing="false" text="Agregar" />
+   </children>
+</HBox>

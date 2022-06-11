@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" prefHeight="150.0" prefWidth="247.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fx_app6.TodoDetailsController">
+   <children>
+      <CheckBox mnemonicParsing="false" text="Completado" />
+      <Label text="ALGO POR HACER..." />
+      <Label text="FECHA CREADO" />
+      <Label text="FECHA COMPLETADO" />
+      <Button mnemonicParsing="false" text="Guardar" />
+   </children>
+</VBox>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fx_app2.DetailsView">
+   <children>
+       <TabPane layoutX="22.0" layoutY="12.0" prefHeight="377.0" prefWidth="569.0" tabClosingPolicy="UNAVAILABLE">
+           <tabs>
+               <Tab text="Untitled Tab 1">
+                   <content>
+                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                               <Button layoutX="177.0" layoutY="118.0" mnemonicParsing="false" text="Button" />
+                           </children></AnchorPane>
+                   </content>
+               </Tab>
+               <Tab text="Untitled Tab 2">
+                   <content>
+                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                               <CheckBox layoutX="188.0" layoutY="129.0" mnemonicParsing="false" text="CheckBox" />
+                           </children></AnchorPane>
+                   </content>
+               </Tab>
+           </tabs>
+       </TabPane>
+   </children>
+</AnchorPane>

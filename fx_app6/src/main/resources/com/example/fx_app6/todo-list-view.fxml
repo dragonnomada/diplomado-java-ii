@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox nodeOrientation="LEFT_TO_RIGHT" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fx_app6.TodoListController">
+   <children>
+      <TableView fx:id="todoListTable" onMouseClicked="#onTableClick" prefHeight="285.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
+        <columns>
+          <TableColumn fx:id="column1" prefWidth="103.0" resizable="false" style="-fx-alignment: CENTER;" text="COMPLETADO" />
+          <TableColumn fx:id="column2" prefWidth="106.0" text="TÍTULO" />
+            <TableColumn fx:id="column3" prefWidth="75.0" text="FECHA CREADO" />
+            <TableColumn fx:id="column4" prefWidth="212.0" text="FECHA COMPLETADO" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <HBox alignment="CENTER_RIGHT">
+         <children>
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Agregar" />
+         </children>
+      </HBox>
+   </children>
+</VBox>

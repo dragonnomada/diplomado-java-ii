@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" prefHeight="267.0" prefWidth="259.0" spacing="20.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fx_app2.HelloController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+   <Label text="Label" />
+
+    <Label fx:id="welcomeText" />
+    <Button onAction="#onHelloButtonClick" text="Hello!" />
+   <CheckBox mnemonicParsing="false" text="CheckBox" />
+   <ComboBox prefWidth="150.0" />
+   <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+   <TextArea prefHeight="121.0" prefWidth="219.0" />
+   <HBox alignment="BASELINE_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0">
+      <children>
+         <Button mnemonicParsing="false" text="Button" />
+         <Button alignment="BASELINE_LEFT" mnemonicParsing="false" text="Button" textFill="#da1d1d" />
+      </children>
+   </HBox>
+    <Label text="Hola" />
+</VBox>
